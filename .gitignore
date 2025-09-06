@@ -1,0 +1,52 @@
+# ============================
+# Python / Flask Gitignore
+# ============================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Flask instance folder (contains config/secrets at runtime)
+instance/
+
+# Environment variables file (sensitive info like SECRET_KEY, DB_URI)
+.env
+*.env
+
+# SQLite database (if you use it for local dev)
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+
+# Coverage / testing
+.coverage
+htmlcov/
+.cache/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# System / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/

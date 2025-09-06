@@ -1,0 +1,104 @@
+What the website does (feature overview)
+
+Accounts & Auth
+
+Register, log in/out, remember-me, password reset via email tokens. 
+blog.miguelgrinberg.com
++1
+
+Profiles
+
+Public profile pages with avatar (Gravatar), “about me,” last-seen timestamp, and an edit-profile form. 
+blog.miguelgrinberg.com
+
+Posting & Feeds
+
+Users publish short text posts.
+
+A personalized timeline shows posts from people you follow; an Explore page shows everyone’s posts. Pagination included. 
+blog.miguelgrinberg.com
++1
+
+Follow system
+
+Follow/unfollow other users; your home feed is built from followed users. 
+blog.miguelgrinberg.com
+
+Search
+
+Full-text search across posts (Elasticsearch integration). 
+blog.miguelgrinberg.com
+
+Internationalization (i18n)
+
+UI translated with Flask-Babel (language catalogs, message extraction, etc.). 
+blog.miguelgrinberg.com
+
+Live translation (AJAX)
+
+“Translate” button for posts using Microsoft Translator via an async (JSON) route. 
+blog.miguelgrinberg.com
+
+UX polish
+
+Bootstrap facelift, moment.js timestamps, and a small JS “hover card” popup for user info. 
+blog.miguelgrinberg.com
++1
+
+Private messages & notifications
+
+In-site direct messages plus a notifications dropdown/badge. 
+blog.miguelgrinberg.com
+
+Background jobs
+
+A Redis + RQ worker handles long tasks (e.g., exporting posts), decoupled from web requests. 
+blog.miguelgrinberg.com
+
+Production deployment options
+
+Linux VM (gunicorn + nginx), Heroku, and Docker containers—all covered. 
+blog.miguelgrinberg.com
++2
+blog.miguelgrinberg.com
++2
+
+REST API
+
+Proper browser-agnostic API endpoints (token-based) separate from the HTML views. 
+blog.miguelgrinberg.com
+
+Testing
+
+Unit tests and coverage woven through the build. (Chapters on testing and later refactors mention this.) 
+blog.miguelgrinberg.com
+
+How the app is structured (tech & architecture)
+
+Stack & extensions
+
+Flask with Jinja templates, WTForms (Flask-WTF), SQLAlchemy ORM, Alembic migrations (Flask-Migrate), Flask-Login, Flask-Mail, Flask-Babel, moment.js, Elasticsearch client, Redis/RQ. 
+blog.miguelgrinberg.com
++4
+blog.miguelgrinberg.com
++4
+blog.miguelgrinberg.com
++4
+
+Project layout
+
+Starts simple; later refactors into an application factory + blueprints and a cleaner, large-app structure. 
+blog.miguelgrinberg.com
+
+Database
+
+SQLite in development; migrations manage schema (users, posts, followers link-table, messages, notifications, tasks). 
+blog.miguelgrinberg.com
+
+Front end
+
+Server-rendered HTML (Jinja) + light JavaScript/AJAX for interactive bits (translation, hover popovers). 
+blog.miguelgrinberg.com
++2
+blog.miguelgrinberg.com
++2
