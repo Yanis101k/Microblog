@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en-uk"> 
+   <head>
+
+    {% if title %}
+    <title> Welcome to {{ title }} Microblog </title>
+    {% else %}
+    <title> Microblog </title>
+    {% endif %}
+    
+   </head>
+
+   <body>
+
+    <navbar>
+        <a href="#" > <h1> Home    </h1> </a>
+        <a href="#" > <h1> Explore </h1> </a>
+        <a href="#" > <h1> Profile </h1> </a>
+    </navbar>
+
+    {% block content %} {% endblock %}
+
+    <footer>
+        <p> &copy; {{ current_year }} Microblog. All rights reserved.</p>
+    </footer>
+   </body>
+</html>
+
