@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en-uk"> 
+<html lang="en-GB"> 
    <head>
 
     {% if title %}
@@ -13,13 +13,25 @@
 
    <body>
 
-    <navbar>
-        <a href="#" > <h1> Home    </h1> </a>
-        <a href="#" > <h1> Explore </h1> </a>
-        <a href="#" > <h1> Profile </h1> </a>
-    </navbar>
+    <div>
+        Microblog : 
+        <a href=" {{ url_for('index') }}" > Home </a>
+        <a href=" {{ url_for('login') }}" >Log in  </a>
+    </div>
 
-    {% block content %} {% endblock %}
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    
+    <ul>
+         {% for message in messages %}
+         <li> {{ message }}</li>
+         {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+   {% block content %} {% endblock %}
 
     <footer>
         <p> &copy; {{ current_year }} Microblog. All rights reserved.</p>
