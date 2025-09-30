@@ -3,9 +3,12 @@ from flask import Flask
 # import Config classes from config module that we gonna use to configure our app
 from config import Config , DevelopmentConfig , TestingConfig , ProductionConfig
 
-import os 
-# import dotenv package that contain load_dotenv() fuction that load .*env files and use it config variables 
-from dotenv import load_dotenv
+# import SQLAlchemy module for database integration 
+from flask_sqlalchemy import SQLAlchemy 
+
+# import Migrate module to handle and keep track of our database migration 
+from flask_migrate import Migrate 
+
 
 # create app object as an instance of Flask class 
 # passing __name__ predifined python variable that contain the name of current module ( app/__init__ )
@@ -14,8 +17,11 @@ from dotenv import load_dotenv
 
 app = Flask( __name__ )
 
-# import FLASK_ENV variable to let flask know in which env is ( dev , testing , prod ) 
-load_dotenv( "../.flaskenv")
+import os
+from dotenv import load_dotenv
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(BASE_DIR, '..', '.flaskenv'))  # always resolves correctly
 env = os.getenv( "FLASK_ENV" )
 
 # load the configuration of current env 
@@ -30,8 +36,14 @@ match env :
     case __ : app.config.from_object( Config )
 
 
+
+db = SQLAlchemy(app) 
+
+migrate = Migrate( app , db )
+
+
+
 # import from app package the routes module 
 
-from app import routes 
 
-print( app.config )
+from app import routes , models

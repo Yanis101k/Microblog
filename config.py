@@ -11,15 +11,15 @@ class Config :
 class DevelopmentConfig( Config ) : 
     """ config for local development """
     DEBUG = True 
-    DATABASE_URL = os.environ.get('DEV_DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DEV_DATABASE_URL" , "sqlite:///dev.db" ) 
 
 class TestingConfig( Config ) : 
     """ config for testing """
     TESTING = True 
-    DATABASE_URL = os.environ.get( 'TEST_DATABASE_URL' )
+    SQLALCHEMY_DATABASE_URI = os.environ.get( 'TEST_DATABASE_URL' , "sqlite:///dev.db")
 
 class ProductionConfig( Config ) :
 
     """ config for production env """ 
-    DATABASE_URL = os.environ.get('PROD_DATABASE_URL') 
+    SQLALCHEMY_DATABASE_URI = os.environ.get('PROD_DATABASE_URL' ) 
 
