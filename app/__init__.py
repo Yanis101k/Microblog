@@ -9,6 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 # import Migrate module to handle and keep track of our database migration 
 from flask_migrate import Migrate 
 
+from flask_login import LoginManager 
 
 # create app object as an instance of Flask class 
 # passing __name__ predifined python variable that contain the name of current module ( app/__init__ )
@@ -41,7 +42,9 @@ db = SQLAlchemy(app)
 
 migrate = Migrate( app , db )
 
+login = LoginManager(app) 
 
+login.login_view = 'login' 
 
 # import from app package the routes module 
 
